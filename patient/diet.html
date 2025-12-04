@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet Planner</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            background: #f6f9fc;
+            color: #333;
+        }
+
+        .header {
+            background: #0077b6;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 90%;
+            margin: 20px auto;
+        }
+
+        .section-title {
+            font-size: 22px;
+            margin: 20px 0 10px;
+            font-weight: 600;
+            color: #0077b6;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #eee;
+            text-align: left;
+        }
+
+        th {
+            background: #0077b6;
+            color: white;
+        }
+
+        .food-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+        }
+
+        .food-card {
+            background: white;
+            border-radius: 10px;
+            text-align: center;
+            padding-bottom: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .food-card img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+        }
+
+        canvas {
+            width: 100% !important;
+            max-width: 420px;
+            margin: auto;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Healthy Diet Planner 🍽️</h1>
+        <p>Daily Nutritional Schedule</p>
+    </div>
+
+    <div class="container">
+
+        <!-- Meal Plan Table -->
+        <div class="section-title">Meal Plan</div>
+        <table>
+            <tr>
+                <th>Meal</th>
+                <th>Food Item</th>
+                <th>Calories</th>
+            </tr>
+            <tr>
+                <td>Breakfast</td>
+                <td>Oats + Banana + Milk</td>
+                <td>350 kcal</td>
+            </tr>
+            <tr>
+                <td>Lunch</td>
+                <td>Brown Rice + Dal + Salad</td>
+                <td>500 kcal</td>
+            </tr>
+            <tr>
+                <td>Snacks</td>
+                <td>Fruits + Green Tea</td>
+                <td>200 kcal</td>
+            </tr>
+            <tr>
+                <td>Dinner</td>
+                <td>Chapati + Paneer + Veggies</td>
+                <td>450 kcal</td>
+            </tr>
+            <tr>
+                <th colspan="2">Total</th>
+                <th>1500 kcal</th>
+            </tr>
+        </table>
+
+        <!-- Food Options Images -->
+        <div class="section-title">Recommended Healthy Foods</div>
+        <div class="food-gallery">
+            <div class="food-card">
+                <img src="assets\oats.jpg" alt="Oats">
+                <p>Oats</p>
+            </div>
+            <div class="food-card">
+                <img src="assets\salad.jpg" alt="Salad">
+                <p>Green Salad</p>
+            </div>
+            <div class="food-card">
+                <img src="assets\fruits.jpg" alt="Fruits">
+                <p>Fresh Fruits</p>
+            </div>
+            <div class="food-card">
+                <img src="assets\paneer.jpg" alt="Paneer">
+                <p>Paneer</p>
+            </div>
+            <div class="food-card">
+                <img src="assets\vege.jpg" alt="Vegetables">
+                <p>Vegetables</p>
+            </div>
+        </div>
+
+        <!-- Calories Chart -->
+        <div class="section-title">Calorie Breakdown</div>
+        <canvas id="calorieChart"></canvas>
+    </div>
+
+    <!-- Pie Chart Script -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        new Chart(document.getElementById('calorieChart'), {
+            type: 'pie',
+            data: {
+                labels: ['Breakfast', 'Lunch', 'Snacks', 'Dinner'],
+                datasets: [{
+                    data: [350, 500, 200, 450],
+                    borderWidth: 1
+                }]
+            }
+        });
+    </script>
+
+</body>
+</html>
