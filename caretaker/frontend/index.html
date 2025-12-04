@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareSarthi Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="flex flex-col min-h-screen bg-gradient-to-br from-[#E3F2FD] to-[#BBDEFB]">
+
+  <div class="flex flex-1">
+
+    <!-- Sidebar -->
+    <aside class="w-64 bg-[#0D47A1] text-white flex flex-col shadow-xl">
+      <div class="p-6 text-center font-bold text-2xl border-b border-[#1565C0]">
+        CareSarthi
+      </div>
+
+      <nav class="flex-1 px-4 py-6 space-y-2">
+        
+        <h4 class="px-2 mb-2 text-gray-300 uppercase text-xs tracking-wider">Patient</h4>
+        <button onclick="loadProfile()" class="w-full flex items-center gap-3 px-4 py-2 rounded hover:bg-[#1565C0] transition">
+          <i class="fa fa-user"></i> Profile
+        </button>
+        <button onclick="loadAppointments()" class="w-full flex items-center gap-3 px-4 py-2 rounded hover:bg-[#1565C0] transition">
+          <i class="fa fa-calendar"></i> Appointments
+        </button>
+
+        <h4 class="px-2 mt-4 mb-2 text-gray-300 uppercase text-xs tracking-wider">Doctors</h4>
+        <button onclick="loadDoctor()" class="w-full flex items-center gap-3 px-4 py-2 rounded hover:bg-[#1565C0] transition">
+          <i class="fa fa-user-md"></i> Doctor Info
+        </button>
+        <button onclick="loadNotifications()" class="w-full flex items-center gap-3 px-4 py-2 rounded hover:bg-[#1565C0] transition">
+          <i class="fa fa-bell"></i> Notifications
+        </button>
+
+        <h4 class="px-2 mt-4 mb-2 text-gray-300 uppercase text-xs tracking-wider">Medicines</h4>
+        <button onclick="loadMedicines()" class="w-full flex items-center gap-3 px-4 py-2 rounded hover:bg-[#1565C0] transition">
+          <i class="fa fa-pills"></i> Medicines
+        </button>
+        <button onclick="showSection('medicine-stock')" class="w-full flex items-center gap-3 px-4 py-2 rounded hover:bg-[#1565C0] transition">
+          <i class="fa fa-boxes"></i> Medicine Stock
+        </button>
+        <button onclick="showUploader()" class="w-full flex items-center gap-3 px-4 py-2 rounded hover:bg-[#1565C0] transition">
+          <i class="fa fa-upload"></i> Upload Prescription
+        </button>
+
+        <h4 class="px-2 mt-4 mb-2 text-gray-300 uppercase text-xs tracking-wider">Prescriptions</h4>
+        <button onclick="loadPrescriptions()" class="w-full flex items-center gap-3 px-4 py-2 rounded hover:bg-[#1565C0] transition">
+          <i class="fa fa-file-medical"></i> Prescriptions
+        </button>
+
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-10 overflow-auto">
+
+      <!-- Header / Welcome -->
+      <div class="mb-10">
+        <h1 class="text-5xl font-bold text-[#0D47A1] mb-4">Welcome to CareSarthi Dashboard</h1>
+        <p class="text-gray-700 text-lg leading-relaxed max-w-3xl">
+          CareSarthi is a personal family-controlled system designed to help loved ones 
+          monitor patient health, manage daily care tasks, and keep track of important details. 
+          No third-party involvement — only the family has access.  
+          With clear tools, real-time updates, and an organized interface, managing a patient’s 
+          daily care becomes simple, secure, and efficient.
+        </p>
+      </div>
+
+      <!-- Stats Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+
+        <div class="bg-white p-6 rounded-2xl shadow-md border-l-4 border-[#0D47A1]">
+          <h2 class="text-5xl text-[#0D47A1] font-bold">2</h2>
+          <p class="text-gray-600 font-medium mt-1">Family Patients</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl shadow-md border-l-4 border-[#0D47A1]">
+          <h2 class="text-5xl text-[#0D47A1] font-bold">7</h2>
+          <p class="text-gray-600 font-medium mt-1">Upcoming Checkups</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl shadow-md border-l-4 border-[#0D47A1]">
+          <h2 class="text-5xl text-[#0D47A1] font-bold">23</h2>
+          <p class="text-gray-600 font-medium mt-1">Medicines Available</p>
+        </div>
+
+      </div>
+
+      <!-- Image Cards Section -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
+
+        <div class="relative group rounded-3xl shadow-xl overflow-hidden bg-white">
+          <img src="caretaker2.jpg" class="w-full h-80 object-cover group-hover:scale-110 transition duration-500" />
+          <h3 class="text-center py-4 text-[#0D47A1] text-xl font-semibold">Daily Health Monitoring</h3>
+        </div>
+
+        <div class="relative group rounded-3xl shadow-xl overflow-hidden bg-white">
+          <img src="caretakers.jpg" class="w-full h-80 object-cover group-hover:scale-110 transition duration-500" />
+          <h3 class="text-center py-4 text-[#0D47A1] text-xl font-semibold">Family Care Support</h3>
+        </div>
+
+        <div class="relative group rounded-3xl shadow-xl overflow-hidden bg-white">
+          <img src="rsz_1-caretaker-vs-caregiver.webp" class="w-full h-80 object-cover group-hover:scale-110 transition duration-500" />
+          <h3 class="text-center py-4 text-[#0D47A1] text-xl font-semibold">Easy Assistance Tracking</h3>
+        </div>
+
+      </div>
+
+      <div id="result"></div>
+
+      <!-- Medicine Stock Section -->
+      <section id="medicine-stock" class="hidden">
+        <div class="bg-white p-10 rounded-2xl shadow-xl w-full md:w-3/4 lg:w-2/3 mx-auto">
+          <h2 class="text-3xl font-bold text-[#0D47A1] mb-4">Medicine Stock</h2>
+
+          <table class="w-full border-collapse border border-gray-300">
+            <thead>
+              <tr class="bg-[#90CAF9] text-white">
+                <th class="p-2 border">Name</th>
+                <th class="p-2 border">Quantity</th>
+                <th class="p-2 border">Expiry Date</th>
+                <th class="p-2 border">Action</th>
+              </tr>
+            </thead>
+            <tbody id="medicine-table"></tbody>
+          </table>
+
+          <div class="mt-6">
+            <h3 class="text-xl font-bold text-[#0D47A1] mb-3">Add New Medicine</h3>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+              <input id="med-name" type="text" placeholder="Medicine Name" class="border p-2 rounded w-full" />
+              <input id="med-qty" type="number" placeholder="Quantity" class="border p-2 rounded w-full" />
+              <input id="med-exp" type="date" class="border p-2 rounded w-full" />
+              <button onclick="addMedicine()" class="bg-[#0D47A1] text-white px-4 py-2 rounded">Add</button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-[#0D47A1] text-white text-center p-4 shadow-inner mt-auto">
+    &copy; 2025 CareSarthi. Family-Controlled Monitoring System.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
